@@ -1,0 +1,5 @@
+<form action={% url "list_add_order" %} method="post">
+{% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success">+Add</button>
+</form>

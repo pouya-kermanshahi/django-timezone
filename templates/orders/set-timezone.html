@@ -1,0 +1,34 @@
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label class="label">Select timezone: </label>
+        <select class="form-control" onchange="handleChange(event)" id="timezone-select">
+            {% for zone in timezones %}
+                <option value="{{ zone }}">{{ zone }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+
+<script>
+    function handleChange(e) {
+        window.location.href =
+            "http://" +
+            window.location.host +
+            window.location.pathname +
+            '?' + `timezone=${e.target.value}`;
+
+        {#window.location.search = urlParams;#}
+        {#this.form.submit()#}
+    }
+
+    {#(#}
+    {#    function () {#}
+    {#        const urlParams = new URLSearchParams(window.location.search);#}
+    {#        const timezone = urlParams.get('timezone');#}
+    {#        const select = document.getElementById("timezone-select");#}
+    {#        select.value = timezone;#}
+    {#    }#}
+    {#)();#}
+
+</script>
